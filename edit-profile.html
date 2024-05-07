@@ -5,6 +5,24 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+    <style>
+        input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            border-radius: 10px;
+            color: #f56a6a;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            border: 3px solid #f56a6a;
+            display: inline-block;
+            padding-top: 35%;
+            padding-bottom: 35%;
+            cursor: pointer;
+        }
+        </style>
 	<head>
 		<title>Leaf Relief</title>
 		<meta charset="utf-8" />
@@ -34,27 +52,36 @@
                             <section id="banner">
                                 <div class="content">
                                     <header>
-                                        <h1>Pierwszy</h1>
-                                        <span>Cena: </span><h3>120 zł</h3>
-                                        <span>Dostępność: </span><h3> średnia ilość</h3>
+                                        <form id="main-form" method="post" action="#">
+                                            
+                                                <span>Login</span>
+                                                <input type="text" placeholder="">
+                                                <br>
+                                                <span>Miasto</span>
+                                                <input type="text" placeholder="">
+                                                <br>
+                                                <span>Kod pocztowy</span>
+                                                <input type="text" placeholder="">
+                                                <br>
+                                                <span>Ulica</span>
+                                                <input type="text" placeholder="">
+                                                <br>
+                                                <span>Numer ulicy</span>
+                                                <input type="text" placeholder="">
+                                                <br>
+                                                <span>Numer lokalu</span>
+                                                <input type="text" placeholder="">
+                                                <br>
+                                                <input class="primary" style="display: inline-block; width: 100%;" type="submit" value="Edytuj">
+                                        </form>
                                     </header>
-                                    <form type="post" action="">
-                                        <input style="display: inline; width: 25%;" type="text" placeholder="Ilość">
-                                        <br>
-                                        <br>
-                                        <input class="primary" style="display: inline-block; width: 100%;" type="submit" value="Do koszyka">
-                                    </form>
                                 </div>
-                                <span class="image object">
-                                    <img src="images/pic10.jpg" alt="" />
-                                </span>
+                                <div style="display: flex; width: 50%; padding: 2% 2% 5% 5%;">
+                                    <label for="photo" class="custom-file-upload"><img src="images/photo.png" width="40%" alt="#"></label>
+                                    <input id="photo" type="file" form="main-form">
+                                </div>
+                                
                             </section>
-                                <hr class="major" />
-                                <article>
-                                    <h2>Opis produkty</h2>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
-                                </article>
                                     <section id="products">
                                         <header class="major">
                                             <h2>Top Produktów</h2>
@@ -127,13 +154,6 @@
 									<li><a href="index.html#about">O nas</a></li>
 								</ul>
                             </nav>
-                            <div class="col-6 col-12-small">
-                                <ul class="actions stacked">
-                                    <li><a href="login.html" class="button primary fit">Zaloguj się</a></li>
-                                    <li><a href="registration.html" class="button fit">Zarejestruj się</a></li>
-                                </ul>
-                            </div>
-
                         <!-- Section -->
                             <section>
                                 <header class="major">
