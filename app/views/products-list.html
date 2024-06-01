@@ -1,0 +1,40 @@
+{extends file = "default.html"}
+{block name=content}
+							<!-- Section -->
+								<section id="products">
+                                    <section id="search" class="alt">
+                                        <form id="product_searc" method="post" action="{url action ="filter_products"}" style="display: inline-block; width: 70%;">
+                                            <input type="text" name="query" id="query" placeholder="Nazwa produktu" />
+                                        </form>
+                                            <input style="display: inline-block; width: 20%; padding-bottom: 0%; vertical-align: 5%;" type="submit" class="primary" value="Wyszukaj" form="product_searc">
+                                        
+                                    </section>
+									<hr class="major" />
+									<div class="posts">
+										{foreach $products as $row}
+										<article>
+											<form method="post" action="{url action="product_display"}">
+											<a style="display: block; width: 35%; margin-left: auto; margin-right: auto;" href="" class="image"><img src="{$row.image}" alt="" /></a>
+											<div style="display: inline-block; width: 100%;">
+												<h3 style="display: inline-block; width: 35%;">{$row.name}</h3>
+												<div style="display: inline-block; width: 64%;"><span style="text-align: right; display: inline-block; width: 100%;">Cena: <strong style="font-size: 1.15em;">{$row.price} zł</strong></span>
+												<span style="text-align: right; display: inline-block; width: 100%;">Typ: <strong style="font-size: 1.15em;">{$row.type_name}</strong></span></div>
+											</div>
+											<br>
+											<br>
+											<p>{$row.description}</p>
+											<ul class="actions">
+												<li>
+													<button type="submit" name="name" value="{$row.name}">
+														Więcej
+													</button>
+												</li>
+											</ul>
+											</form>
+										</article>
+										{/foreach}
+									</div>
+								</section>
+						</div>
+					</div>
+{/block}

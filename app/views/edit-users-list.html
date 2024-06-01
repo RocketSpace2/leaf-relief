@@ -1,0 +1,45 @@
+{extends file = "default.html"}
+{block name=content}
+                                <br>
+                                <h2>Użytkownicy</h2>
+                                <br>
+
+                                <div class="table-wrapper">
+                                    <table>
+                                        <thead>
+                                            <tr >
+                                                <th>Login</th>
+                                                <th>Rola</th>
+                                                <th>Data aktywacji</th>
+                                                <th>Data deaktywacji</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                {foreach $row as $key => $data}
+                                                {if $key == role_name}
+                                                    <td><form id="edit-user" method="post" action="{url action="edit_user"}">
+                                                        <select name="role" id="role">
+                                                            <option value="1" {if $role == "user"} selected {/if}>Użytkownik</option>
+                                                            <option value="2"  {if $role == "worker"} selected {/if}>Pracownik</option>
+                                                            <option value="3"  {if $role == "admin"} selected {/if}>Administrator</option>
+                                                        </select>
+                                                    </form></td> 
+                                                {elseif $data == null}
+                                                    <td> — </td>
+                                                {else}
+                                                    <td>{$data}</td>
+                                                {/if}
+                                                {/foreach}
+                                                <td>
+                                                    <input form="edit-user" class="primary" type="submit" name="user-role" id="user-role" value="Edytuj">
+                                                </td> 
+                                            </tr>
+                                        
+                                        </tbody>
+                                    </table>
+                                </div>
+						</div>
+					</div>
+{/block}

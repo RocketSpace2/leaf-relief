@@ -1,0 +1,66 @@
+{extends file = "default.html"}
+{block name=content}
+
+
+                                <br>
+                                <h2>Lista produktów</h2>
+                                <br>
+                                <section id="search" class="alt">
+                                    <form  id="product_search" method="post" action="{url action = "products_list_worker_display"}" style="display: inline-block; width: 45%;">
+                                        <input  type="text" id="query" name="query" placeholder="Nazwa porduktu">
+                                        
+                                    </form>
+                                    <div style="display: inline-block; width: 54%; vertical-align: 5%;">
+                                            <span>Typ produktu</span>
+                                            <select form="product_search" style="display: inline-block; width: 40%;" name="type">
+                                                <option value="0"> — </option>
+                                                <option value="1">Środki ochrony roślin</option>
+                                                <option value="2">Nawozy</option>
+                                                <option value="3">Nasiona</option>
+                                            </select>
+                                           <input type="submit" value="Wyszukaj" class="primary" form="product_search">
+                                    </div>
+                                </section>
+
+                                <div class="table-wrapper">
+                                    <table>
+                                        <thead>
+                                            <tr >
+                                                <th>Zdjęcie</th>
+                                                <th>Nazwa</th>
+                                                <th>Opis</th>
+												<th>Typ</th>
+                                                <th>Cena</th>
+                                                <th></th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {foreach $products as $row}
+                                                <tr>
+                                                    <td style="display: inline-flex; vertical-align: text-top;"><img style="border-radius: 5px;" width="100" height="100" src="{$row.image}" alt=""></td>
+                                                    <td>{$row.name}</td>
+                                                    <td>{$row.description}</td>
+                                                    <td>{$row.type_name}</td>
+                                                    <td style="display: block; width: 120%;">{$row.price} zł</td>
+                                                    <td>
+                                                        <form style="display: inline-block; margin-bottom: 5%;" method="post" action="{url action = "edit_product_display"}">
+                                                            <button type="submit" name="name" value="{$row.name}">
+                                                                Edytuj
+                                                            </button>
+                                                        </form>
+                                                        <form style="display: inline;" method="post" action="{url action = "delete_product"}">
+                                                            <button class="primary" type="submit" name="name" value="{$row.name}">
+                                                                Usunąć
+                                                            </button>
+                                                        </form>
+                                                    </form></td>  
+                                                </tr>
+                                            {/foreach}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <a style="display: grid;" href="{url action = "add_product_display"}" class="button">+ dodać</a>
+						</div>
+					</div>
+{/block}
